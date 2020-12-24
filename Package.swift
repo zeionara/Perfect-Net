@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 //
 //  Package.swift
 //  PerfectNet
@@ -27,13 +27,13 @@ let package = Package(
         .library(name: "PerfectNet", targets: ["PerfectNet"])
     ],
     dependencies: [
-        .package(url: "https://github.com/PerfectlySoft/Perfect-Crypto.git", from: "4.0.0"),
-        .package(url: "https://github.com/PerfectlySoft/Perfect-LinuxBridge.git", from: "3.0.0"),
-        .package(url: "https://github.com/PerfectlySoft/Perfect-Thread.git", from: "3.0.0")
+        .package(name: "PerfectCrypto", url: "https://github.com/PerfectlySoft/Perfect-Crypto.git", from: "4.0.0"),
+        .package(name: "LinuxBridge", url: "https://github.com/PerfectlySoft/Perfect-LinuxBridge.git", from: "3.0.0"),
+        .package(name: "PerfectThread", url: "https://github.com/PerfectlySoft/Perfect-Thread.git", from: "3.0.0")
     ],
     targets: [
-        .target(name: "PerfectNet", dependencies: ["Perfect-Crypto", "Perfect-LinuxBridge", "Perfect-Thread"]),
-        .testTarget(name: "PerfectNetTests", dependencies: ["PerfectNet", "Perfect-Crypto", "Perfect-Thread"])
+        .target(name: "PerfectNet", dependencies: ["PerfectCrypto", "LinuxBridge", "PerfectThread"]),
+        .testTarget(name: "PerfectNetTests", dependencies: ["PerfectNet", "PerfectCrypto", "PerfectThread"])
     ]
 )
 #else
@@ -50,8 +50,8 @@ let package = Package(
         .package(url: "https://github.com/PerfectlySoft/Perfect-Thread.git", from: "3.0.0")
     ],
     targets: [
-        .target(name: "PerfectNet", dependencies: ["Perfect-Crypto", "Perfect-Thread"]),
-        .testTarget(name: "PerfectNetTests", dependencies: ["Perfect-Net", "Perfect-Crypto", "Perfect-Thread"])
+        .target(name: "PerfectNet", dependencies: ["PerfectCrypto", "PerfectThread"]),
+        .testTarget(name: "PerfectNetTests", dependencies: ["PerfectNet", "PerfectCrypto", "PerfectThread"])
     ]
 )
 #endif
