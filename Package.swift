@@ -32,8 +32,8 @@ let package = Package(
         .package(url: "https://github.com/PerfectlySoft/Perfect-Thread.git", from: "3.0.0")
     ],
     targets: [
-        .target(name: "PerfectNet", dependencies: ["PerfectCrypto", "LinuxBridge", "PerfectThread"]),
-        .testTarget(name: "PerfectNetTests", dependencies: ["PerfectNet", "PerfectCrypto", "PerfectThread"])
+        .target(name: "PerfectNet", dependencies: ["Perfect-Crypto", "Perfect-LinuxBridge", "Perfect-Thread"]),
+        .testTarget(name: "PerfectNetTests", dependencies: ["PerfectNet", "Perfect-Crypto", "Perfect-Thread"])
     ]
 )
 #else
@@ -50,8 +50,8 @@ let package = Package(
         .package(url: "https://github.com/PerfectlySoft/Perfect-Thread.git", from: "3.0.0")
     ],
     targets: [
-        .target(name: "PerfectNet", dependencies: ["PerfectCrypto", "PerfectThread"]),
-        .testTarget(name: "PerfectNetTests", dependencies: ["PerfectNet", "PerfectCrypto", "PerfectThread"])
+        .target(name: "PerfectNet", dependencies: ["Perfect-Crypto", "Perfect-Thread"]),
+        .testTarget(name: "PerfectNetTests", dependencies: ["Perfect-Net", "Perfect-Crypto", "Perfect-Thread"])
     ]
 )
 #endif
